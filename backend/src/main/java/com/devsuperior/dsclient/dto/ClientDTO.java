@@ -3,6 +3,7 @@ package com.devsuperior.dsclient.dto;
 import java.io.Serializable;
 import java.time.Instant;
 
+import com.devsuperior.dsclient.entities.Client;
 
 public class ClientDTO implements Serializable {
 		private static final long serialVersionUID = 1L;
@@ -11,22 +12,31 @@ public class ClientDTO implements Serializable {
 		private String name;
 		private String cpf;
 		private Double income;
-		private Instant bithDate;
+		private Instant birthDate;
 		private Integer children;
 		
 		public ClientDTO () {
 		}
 		
 		
-
-		public ClientDTO(Long id, String name, String cpf, Double income, Instant bithDate, Integer children) {
+		public ClientDTO(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
 			super();
 			this.id = id;
 			this.name = name;
 			this.cpf = cpf;
 			this.income = income;
-			this.bithDate = bithDate;
+			this.birthDate = birthDate;
 			this.children = children;
+		}
+
+		public ClientDTO(Client entity) {
+			super();
+			this.id = entity.getId();
+			this.name = entity.getName();
+			this.cpf = entity.getCpf();
+			this.income = entity.getIncome();
+			this.birthDate = entity.getBirthDate();
+			this.children = entity.getChildren();
 		}
 
 
@@ -62,12 +72,12 @@ public class ClientDTO implements Serializable {
 			this.income = income;
 		}
 
-		public Instant getBithDate() {
-			return bithDate;
+		public Instant getBirthDate() {
+			return birthDate;
 		}
 
-		public void setBithDate(Instant bithDate) {
-			this.bithDate = bithDate;
+		public void setBithDate(Instant birthDate) {
+			this.birthDate = birthDate;
 		}
 
 		public Integer getChildren() {
